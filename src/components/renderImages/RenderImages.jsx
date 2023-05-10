@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
+
+import './renderImages.css';
 import { loadImages } from "../../utils/loadImages/loadImages";
 import { deleteImages } from "../../utils/deleteImages/deleteImages";
 
-export const RenderImages = ({ breed = '', subBreed = '', imagesQty = 3, deleteBreed = ''}) => {
+export const RenderImages = ({ breed = '', subBreed = '', imagesQty = 4, deleteBreed = ''}) => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
-
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   useEffect(() => {
     if (breed !== 'Seleccione una raza' && subBreed !== 'Seleccione una subraza'){
       if ((breed && breed.length > 0) || (subBreed && subBreed.length > 0)) {
@@ -22,30 +28,61 @@ export const RenderImages = ({ breed = '', subBreed = '', imagesQty = 3, deleteB
       }
     }
   }, [breed, subBreed, deleteBreed]);  
+  
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };  
+
+  console.log('Images: ', images)
 
   return (
     <>
-      {isFirstLoad ? (
-        'Seleccione una raza o subraza'
-        ) : 
-        isLoading ? (
-        'Cargando imágenes...'
+      <div data-testid="rendered-images" className="container_grid">
+        {isFirstLoad ? (
+          'Seleccione una raza o subraza'
+        ) : isLoading ? (
+          'Cargando imágenes...'
         ) : images.length === 0 ? (
-        'No hay imágenes para mostrar'
+          'No hay imágenes para mostrar'
         ) : (
-        images.map((breedImages, breedIndex) =>
-          breedImages.images.map((image, index) => (
-            <img
-              key={`${breedIndex}-${index}`}
-              src={image}
-              alt={`${breedImages.subBreed ? breedImages.subBreed : breedImages.breed}-${index}`}
-              data-testid={`image-${breedIndex}-${index}`}
-            />
+        images.map((breedData, breedIndex) =>
+          breedData.images.map((image, index) => (
+            <div className="card" key={`${breedIndex}-${index}`}>
+              <div className="card_image">
+                <FontAwesomeIcon className="card_image-icon" icon={faUpRightAndDownLeftFromCenter} />
+                <img
+                  className="card_image-image"
+                  src={image}
+                  alt={`${breedData.subBreed ? breedData.subBreed : breedData.breed}-${index}`}
+                  data-testid={`image-${breedIndex}-${index}`}
+                  onClick={() => openModal(image)}
+                />
+              </div>
+              <h2 className="card_text-h2">
+                {breedData.subBreed.length !== 0 ? `${breedData.subBreed} ${breedData.breed}` : breedData.breed}
+              </h2>
+            </div>
           ))
-        )
+        ))}
+      </div>
+      {isModalOpen && (
+        <div
+          className="modal-background"
+          onClick={() => {
+            closeModal();
+          }}
+        >
+          <div className="modal">
+            <img className="modal-image" src={selectedImage} alt="Doggies image" />
+          </div>
+        </div>
       )}
     </>
-  );   
-  
+  );    
 };
 

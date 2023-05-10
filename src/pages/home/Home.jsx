@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './home.css';
 
 import { BreedsList } from "../../components/lists/breedsList/BreedsList"
 import { SubBreedsList } from "../../components/lists/subBreedsList/SubBreedsList"
@@ -17,16 +18,14 @@ export const Home = () => {
   };
   
   return (
-    <>
-      <div data-testid="breed-selector" className="container">
+    <div className="container">
+      <div data-testid="breed-selector" className="container__selector">
         <BreedsList onBreedChange={handleBreedsChange} />
       </div>
-      <div data-testid="sub-breed-selector">
+      <div data-testid="sub-breed-selector" className="container__selector">
         <SubBreedsList breed={actualBreed} onSubBreedChange={handleSubBreedsChange} />
       </div>
-      <div data-testid="rendered-images">
-        <RenderImages breed={actualBreed} subBreed={actualSubBreed}/>
-      </div>
-    </>
+      <RenderImages breed={actualBreed} subBreed={actualSubBreed}/>
+    </div>
   );
 };

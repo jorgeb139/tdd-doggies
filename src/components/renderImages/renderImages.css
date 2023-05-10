@@ -1,0 +1,124 @@
+.container_grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  margin: 20px 0px;
+  background-color: #1a1a1a;
+}
+
+.card_image {
+  position: relative;
+  cursor: pointer;
+}
+
+.card_image-image{
+  transition: opacity 0.2s ease-in;
+}
+
+.card_image-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0; 
+  transition: opacity 0.2s ease-in; 
+}
+
+.card_image:hover .card_image-image {
+  opacity: 0.5;
+}
+
+.card_image:hover .card_image-icon {
+  opacity: 1;
+}
+
+.card_image-image{
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+}
+
+.card_image-icon::before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.card_text-h2{
+  margin: 0px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  transition: opacity 0.5s;
+}
+
+.modal {
+  position: relative;
+  transform: scale(0);
+  animation: scaleIn 0.3s forwards;
+  transition: transform 0.3s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    transform: scale(1);
+  }
+}
+
+.modal-image {
+  max-width: 90%;
+  max-height: 90%;
+  min-width: 40vw;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 480px) {
+
+  .modal-image {
+    min-width: 80vw;
+  }
+
+  .card_image-image{
+    max-width: 90vw;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 960px) {
+  
+  .modal-image {
+    min-width: 70vw;
+  }
+
+  .card_image-image{
+    max-width: 90vw;
+  }
+}

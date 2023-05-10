@@ -1,0 +1,12 @@
+body {
+  color: #cfcfcf;
+  background-color: #21232A;
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 1440px;
+  padding: 0 5%;
+  font-family: 'Lato', sans-serif;
+}
