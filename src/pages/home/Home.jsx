@@ -19,13 +19,15 @@ export const Home = () => {
   
   return (
     <div className="container">
-      <div data-testid="breed-selector" className="container__selector">
+      <div data-testid="breed-selector" className="breed__selector">
         <BreedsList onBreedChange={handleBreedsChange} />
       </div>
-      <div data-testid="sub-breed-selector" className="container__selector">
+      <div data-testid="sub-breed-selector" className="subbreed__selector">
         <SubBreedsList breed={actualBreed} onSubBreedChange={handleSubBreedsChange} />
       </div>
-      <RenderImages breed={actualBreed} subBreed={actualSubBreed}/>
+      <div data-testid="render-images" className="renderImages__container">
+        <RenderImages breed={actualBreed} subBreed={actualSubBreed}/>
+      </div>
     </div>
   );
 };

@@ -38,8 +38,6 @@ export const RenderImages = ({ breed = '', subBreed = '', imagesQty = 4, deleteB
     setIsModalOpen(false);
   };  
 
-  console.log('Images: ', images)
-
   return (
     <>
       <div data-testid="rendered-images" className="container_grid">

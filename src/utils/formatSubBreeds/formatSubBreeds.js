@@ -30,11 +30,11 @@ export const formatSubBreeds = async (breed) => {
       
       const breedCapitalized = breed.charAt(0).toUpperCase() + breed.slice(1).trim();      
       
-      if (!formattedSubBreeds.includes(`${breedCapitalized} ${subBreedCapitalized}`) && subBreedCapitalized.length > 0) {
+      if (!formattedSubBreeds.includes(`${subBreedCapitalized} ${breedCapitalized}`) && subBreedCapitalized.length > 0) {
         if(formattedSubBreeds.length === 0){
           formattedSubBreeds.push('Seleccione una subraza');
         }
-        formattedSubBreeds.push(`${breedCapitalized} ${subBreedCapitalized}`);
+        formattedSubBreeds.push(`${subBreedCapitalized} ${breedCapitalized}`);
       }
     }
   }

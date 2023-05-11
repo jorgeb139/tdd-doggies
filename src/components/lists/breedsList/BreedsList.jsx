@@ -28,6 +28,7 @@ export const BreedsList = ({ onBreedChange }) => {
         <DropdownList 
           breeds = {breeds}
           onBreedChange = {onBreedChange}
+          breedBool = {true}
         />
       )}
     </>

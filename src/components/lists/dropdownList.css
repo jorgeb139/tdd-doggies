@@ -1,0 +1,123 @@
+.list_container {
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.dropdown_list {
+  position: relative;
+  width: 300px;
+  height: 50px;
+}
+
+.dropdown_list::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  width: 12px;
+  height: 2px;
+  background: #555;
+  z-index: 10;
+  transform: rotate(40deg);
+  transition: 0.5s;
+}
+
+.dropdown_list.active {
+  z-index: 20;
+}
+
+.dropdown_list.active::before {
+  right: 7px;
+}
+
+.dropdown_list::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: 7px;
+  width: 12px;
+  height: 2px;
+  background: #555;
+  z-index: 10;
+  transform: rotate(-40deg);
+  transition: 0.5s;
+}
+
+.dropdown_list.active::after {
+  right: 15px;
+}
+
+.dropdown_list-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 87%;
+  height: 50%;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 1em;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  outline: none;
+  border: none;
+}
+
+.breeds_options_container {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  background: transparent;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.breeds_options {
+  max-height: 40vh;
+  overflow-y: auto;
+  background: #fff;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 0;
+  font-size: 1em;
+  color: #6e6e6e;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.breeds_options.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.breeds_options div {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.breeds_options div::after {
+  content: '';
+  position: absolute;
+  left: 15px; 
+  right: 15px;
+  bottom: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.breeds_options div:last-child {
+  border-bottom: none;
+}
+
+.breeds_options div:hover{
+  background-color: #1a1a1a;
+  color: #dcdcdc;
+  transition: 0.3s;
+}
+
+.breeds_options div:first-child{
+  padding-top: 10px;
+}

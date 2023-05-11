@@ -39,7 +39,11 @@ export const SubBreedsList = ({ breed, onSubBreedChange }) => {
         ) : subBreeds.length === 0 ? (
           'No hay subrazas para mostrar'
         ) : (
-          <DropdownList breeds={subBreeds} onSubBreedChange={onSubBreedChange} />
+          <DropdownList 
+            breeds={subBreeds} 
+            onSubBreedChange={onSubBreedChange} 
+            breedBool = {false}
+          />
         )}
     </>
   );

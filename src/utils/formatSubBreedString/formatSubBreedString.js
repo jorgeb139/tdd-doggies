@@ -1,5 +1,5 @@
 export const formatSubBreedString = (subBreedString) => {
-  const [breed, subBreed] = subBreedString.split(' ')
+  const [subBreed, breed] = subBreedString.split(' ')
 
   if (!breed || !subBreed) return subBreedString
   
