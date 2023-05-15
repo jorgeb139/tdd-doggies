@@ -15,16 +15,16 @@ export const RenderImages = ({ breed = '', subBreed = '', imagesQty = 4, deleteB
   
   useEffect(() => {
     if (breed !== 'Seleccione una raza' && subBreed !== 'Seleccione una subraza'){
-      if ((breed && breed.length > 0) || (subBreed && subBreed.length > 0)) {
+      if(deleteBreed.length){
+        setIsLoading(true);
+        deleteImages(deleteBreed.toLowerCase(), setIsFirstLoad, setImages, setIsLoading, images)
+      }
+      else if ((breed && breed.length > 0) || (subBreed && subBreed.length > 0)) {
         breed = breed.toLowerCase()
         subBreed = subBreed.toLowerCase()
         setIsLoading(true);
         loadImages(breed, subBreed, setImages, setIsLoading, imagesQty);
         setIsFirstLoad(false);
-      }
-      else if(deleteBreed.length){
-        setIsLoading(true);
-        deleteImages(deleteBreed, setIsFirstLoad, setImages, setIsLoading, images)
       }
     }
   }, [breed, subBreed, deleteBreed]);  

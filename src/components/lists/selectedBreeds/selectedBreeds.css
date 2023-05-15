@@ -1,0 +1,29 @@
+.selected-breeds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-breed__item {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #6e6e6e;
+  transition: 0.3s;
+}
+
+.selected-breed__item:hover {
+  background-color: #aa2f2f;
+  color: #f0f0f0;
+}
+
+.selected-breeds__remove-icon{
+  margin-left: 5px;
+  cursor: pointer;
+}

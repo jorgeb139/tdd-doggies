@@ -71,6 +71,7 @@
   background: transparent;
   border-radius: 10px;
   overflow: hidden;
+  z-index: -10;
 }
 
 .breeds_options {
