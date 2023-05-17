@@ -1,0 +1,12 @@
+{
+  "noBreedsToShow": "No hay razas para mostrar",
+  "selectBreedOrSubbreedToShow": "Seleccione una raza o subraza",
+  "selectedLanguage": "Idioma actual:",
+  "loadingImages": "Cargando imágenes...",
+  "noImagesToShow": "No hay imágenes para mostrar",
+  "selectBreed": "Seleccione una raza",
+  "selectSubBreed": "Seleccione una subraza",
+  "loadingSubbreeds": "Cargando subrazas",
+  "noSubbreedsToShow": "No hay subrazas para mostrar",
+  "loadingBreeds": "Cargando razas..."
+}

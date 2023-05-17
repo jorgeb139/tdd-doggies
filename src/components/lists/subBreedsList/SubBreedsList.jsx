@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from 'react-i18next';
 
 import { formatSubBreeds } from "../../../utils/formatSubBreeds/formatSubBreeds";
 import { DropdownList } from "../DropdownList";
@@ -13,6 +14,7 @@ export const SubBreedsList = ({ breed, onSubBreedChange, onDeleteBreed, deleteBr
   const [isLoading, setIsLoading] = useState(false);
   const [isFirstLoading, setIsFirstLoading] = useState(true);
 
+  const { t } = useTranslation();
   const setSelectedBreeds = ''
   const notSelectText = 'Seleccione una subraza'
 
@@ -25,7 +27,7 @@ export const SubBreedsList = ({ breed, onSubBreedChange, onDeleteBreed, deleteBr
       setIsFirstLoading(true)
     }else{
       setIsLoading(true);
-      const formattedSubBreeds = await formatSubBreeds(breed);
+      const formattedSubBreeds = await formatSubBreeds(breed, t);
       setIsLoading(false);
       if (Array.isArray(formattedSubBreeds)) {
         setIsFirstLoading(false)
@@ -51,11 +53,11 @@ export const SubBreedsList = ({ breed, onSubBreedChange, onDeleteBreed, deleteBr
     <>
       {
         isFirstLoading ? (
-          'Seleccione una raza'
+          t('selectBreed')
         ) : isLoading ? (
-          'Cargando subrazas'
+          t('loadingSubbreeds')
         ) : subBreeds.length === 0 ? (
-          'No hay subrazas para mostrar'
+          t('noSubbreedsToShow')
         ) : (
           <>
             <DropdownList 

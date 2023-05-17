@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 import './renderImages.css';
 import { loadImages } from "../../utils/loadImages/loadImages";
@@ -12,6 +13,8 @@ export const RenderImages = ({ breed = '', subBreed = '', imagesQty = 4, deleteB
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const { t, i18n } = useTranslation();
   
   useEffect(() => {
     if (breed !== 'Seleccione una raza' && subBreed !== 'Seleccione una subraza'){
@@ -42,11 +45,11 @@ export const RenderImages = ({ breed = '', subBreed = '', imagesQty = 4, deleteB
     <>
       <div data-testid="rendered-images" className="container_grid">
         {isFirstLoad ? (
-          'Seleccione una raza o subraza'
+          t('selectBreedOrSubbreedToShow')
         ) : isLoading ? (
-          'Cargando imágenes...'
+          t('loadingImages')
         ) : images.length === 0 ? (
-          'No hay imágenes para mostrar'
+          t('noImagesToShow')
         ) : (
         images.map((breedData, breedIndex) =>
           breedData.images.map((image, index) => (

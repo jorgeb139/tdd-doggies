@@ -1,0 +1,136 @@
+.language_selector_container {
+  position: absolute;
+  right: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px;
+  top: 0;
+}
+
+.current-language--label {
+  position: relative;
+  top: 20px;
+  margin-right: 10px;
+  visibility: visible;
+}
+
+.language_selector {
+  position: relative;
+  width: 80px;
+  margin-top: 10px;
+}
+
+.language_selector::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: -4px;
+  width: 10px;
+  height: 2px;
+  background: #6e6e6e;
+  z-index: 10;
+  transform: rotate(40deg);
+  transition: 0.5s;
+}
+
+.language_selector.active {
+  z-index: 20;
+}
+
+.language_selector.active::before {
+  right: -11px;
+}
+
+.language_selector::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: -11px;
+  width: 10px;
+  height: 2px;
+  background: #6e6e6e;
+  z-index: 10;
+  transform: rotate(-40deg);
+  transition: 0.5s;
+}
+
+.language_selector.active::after {
+  right: -4px;
+}
+
+.language_selector-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 7px 10px 10px;
+  font-size: 0.9em;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  color: #6e6e6e;
+}
+
+.languages_options_container {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: -10;
+}
+
+.languages_options {
+  max-height: 40vh;
+  overflow-y: auto;
+  background: #fff;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 0;
+  font-size: 0.9em;
+  color: #6e6e6e;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.languages_options.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.languages_options div {
+  padding: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.languages_options div::after {
+  content: '';
+  position: absolute;
+  left: 10px; 
+  right: 10px;
+  bottom: 0;
+  border-bottom: 1px solid #e0e0e6;
+}
+
+.languages_options div:last-child {
+  border-bottom: none;
+}
+
+.languages_options div:hover{
+  background-color: #353535;
+  color: #dcdcdc;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 480px) {
+
+  .current-language--label {
+    visibility: hidden;
+  }
+
+}

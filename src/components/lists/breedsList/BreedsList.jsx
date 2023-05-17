@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from 'react-i18next';
 
 import { formatBreeds } from "../../../utils/formatBreeds/formatBreeds";
 import { DropdownList } from "../DropdownList";
@@ -12,13 +13,14 @@ export const BreedsList = ({ onBreedChange, onDeleteBreed }) => {
   const [selectedBreeds, setSelectedBreeds] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const notSelectText = 'Seleccione una raza'
+  const { t } = useTranslation();
+  const notSelectText = t('selectBreed')
 
   const handleBreedSelect = useHandleBreedSelect(setSelectedBreeds, onBreedChange, notSelectText);
   const handleBreedRemove = useHandleBreedRemove(setSelectedBreeds, onDeleteBreed);
 
   const loadFormatedBreeds = async () => {
-    const formattedBreeds = await formatBreeds();
+    const formattedBreeds = await formatBreeds(t);
     if (Array.isArray(formattedBreeds)) {
       setBreeds(formattedBreeds);
     }
@@ -32,9 +34,9 @@ export const BreedsList = ({ onBreedChange, onDeleteBreed }) => {
   return (
     <>
       {isLoading ? (
-        'Cargando razas'
+        t('loadingBreeds')
       ) : breeds.length === 0 ? (
-        'No hay razas para mostrar'
+        t('noBreedsToShow')
       ) : (
         <>
           <DropdownList 

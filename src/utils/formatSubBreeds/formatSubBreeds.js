@@ -1,7 +1,7 @@
 import { getSubBreeds } from '../../services/getSubBreeds/getSubBreeds';
 import CustomError from '../CustomError.js';
 
-export const formatSubBreeds = async (breed) => {
+export const formatSubBreeds = async (breed, t) => {
 
   if (breed === '') {
     return [];
@@ -32,9 +32,9 @@ export const formatSubBreeds = async (breed) => {
       
       if (!formattedSubBreeds.includes(`${subBreedCapitalized} ${breedCapitalized}`) && subBreedCapitalized.length > 0) {
         if(formattedSubBreeds.length === 0){
-          formattedSubBreeds.push('Seleccione una subraza');
+          formattedSubBreeds.push({ label: t('selectSubBreed'), value: 'Seleccione una subraza'});
         }
-        formattedSubBreeds.push(`${subBreedCapitalized} ${breedCapitalized}`);
+        formattedSubBreeds.push({ label: `${subBreedCapitalized} ${breedCapitalized}`, value: `${subBreedCapitalized} ${breedCapitalized}` });
       }
     }
   }
