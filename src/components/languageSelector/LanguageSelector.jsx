@@ -6,7 +6,6 @@ import "./languageSelector.css"
 
 export const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguageName, setSelectedLanguageName] = useState('English');
   const { t, i18n } = useTranslation();
 
   const languages = [
@@ -14,7 +13,11 @@ export const LanguageSelector = () => {
     { code: 'es', name: 'Español' },
   ];
 
-  const changeLanguage = (lang) => {
+  const initialLanguageCode = localStorage.getItem('language');
+  const initialLanguage = languages.find(language => language.code === initialLanguageCode);
+  const [selectedLanguageName, setSelectedLanguageName] = useState(initialLanguage ? initialLanguage.name : 'English');
+
+  const onChangeLanguage = (lang) => {
     const selected = languages.find(language => language.code === lang); 
     i18n.changeLanguage(lang);
     localStorage.setItem('language', lang);
@@ -33,7 +36,7 @@ export const LanguageSelector = () => {
             <div className="languages_options_container">
               <div className={`languages_options ${isOpen ? 'active' : ''}`}>
                 {languages.map((lang) => (
-                  <div key={lang.code} onClick={() => changeLanguage(lang.code)}>
+                  <div key={lang.code} onClick={() => onChangeLanguage(lang.code)}>
                     {lang.name}
                   </div>
                 ))}
