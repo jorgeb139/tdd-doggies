@@ -8,5 +8,7 @@
   "selectSubBreed": "Select a subbreed",
   "loadingSubbreeds": "Loading Subbreds",
   "noSubbreedsToShow": "There are no subbreeds to show",
-  "loadingBreeds": "Loading breeds..."
+  "loadingBreeds": "Loading breeds...",
+  "LightMode": "Light mode",
+  "DarkMode": "Dark mode"
 }

@@ -1,0 +1,95 @@
+.darkmode_container{
+  display: flex;
+  align-items: center;
+  margin-top: -13px;
+}
+
+.darkmode_label {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: #3e3e3e;
+  box-shadow: 0 0 0 2px #303030;
+  border-radius: 75px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.darkmode-text {
+  margin-left: 15px;
+}
+
+#Light .darkmode_label{
+  background: #d0d0d0;
+  box-shadow: 0 0 0 2px #c7c7c7;
+}
+
+.darkmode-input {
+  appearance: none;
+}
+
+.darkmode-span {
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: url(sun.png);
+  background-size: auto 30px;
+  background-repeat: no-repeat;
+  transition: 1s;
+  transform: rotate(0deg);
+}
+
+.darkmode-input:checked ~ span{
+  left: 30px;
+  background: url(moon.png);
+  background-size: auto 30px;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+}
+
+.lightmode-text{
+  color: #8f8f8f;
+  font-size: 0.9em;
+  transition: color 1s, filter 1s, left 1s, font-size 1s;
+  visibility: visible;
+}
+
+#Light .lightmode-text {
+  filter: drop-shadow(0 0 15px #faf448) drop-shadow(0 0 20px #faf448) drop-shadow(0 0 35px #faf448) drop-shadow(0 0 50px #faf448);
+  color: #3e3e3e;
+}
+
+label input:checked ~ p{
+  color: #8f8f8f;
+  filter: none;
+}
+
+#Light .darkmode-text {
+  color: #8f8f8f;
+}
+
+#Dark .darkmode-text{
+  color: #fff;
+  filter: drop-shadow(0 0 15px #fff) drop-shadow(0 0 35px #fff);
+}
+
+@media screen and (max-width: 480px) {
+
+  .darkmode_container p {
+    visibility: hidden;
+  }
+
+  .darkmode_container {
+    margin-top: -15px;
+    margin-left: -50px;
+  }
+
+  .darkmode_label {
+    width: 90px;
+  }
+
+}

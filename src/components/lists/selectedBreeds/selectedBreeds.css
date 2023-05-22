@@ -18,7 +18,18 @@
   transition: 0.3s;
 }
 
+#Light .selected-breed__item {
+  background-color: #c7c7c7;
+  color: #3a3a3a;
+  transition: 0.3s;
+}
+
 .selected-breed__item:hover {
+  background-color: #aa2f2f;
+  color: #f0f0f0;
+}
+
+#Light .selected-breed__item:hover {
   background-color: #aa2f2f;
   color: #f0f0f0;
 }
@@ -27,3 +38,4 @@
   margin-left: 5px;
   cursor: pointer;
 }
+

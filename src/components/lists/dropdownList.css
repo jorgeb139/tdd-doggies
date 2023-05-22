@@ -59,9 +59,20 @@
   padding: 12px 20px;
   font-size: 1em;
   background: #fff;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   outline: none;
   border: none;
+  transition: 1s;
+}
+
+#Light .dropdown_list-input{
+  transition: 1s;
+  color: #3a3a3a;
+  background-color: #e0e0e0;
+}
+
+#Light .dropdown_list-input::placeholder {
+  color: #3a3a3a;
+  transition: 1s;
 }
 
 .breeds_options_container {
@@ -116,6 +127,11 @@
 .breeds_options div:hover{
   background-color: #1a1a1a;
   color: #dcdcdc;
+  transition: 0.3s;
+}
+
+#Light .breeds_options div:hover{
+  background-color: #6e6e6e;
   transition: 0.3s;
 }
 

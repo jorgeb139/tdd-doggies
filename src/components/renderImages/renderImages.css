@@ -57,6 +57,13 @@
   padding-bottom: 20px;
   font-size: 1em;
   text-transform: uppercase;
+  transition: 0.3s;
+}
+
+#Light .card_text-h2{
+  color: #3a3a3a;
+  background-color: #e0e0e0;
+  transition: 0.3s;
 }
 
 .modal-background {

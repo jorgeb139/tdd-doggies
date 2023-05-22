@@ -8,5 +8,7 @@
   "selectSubBreed": "Seleccione una subraza",
   "loadingSubbreeds": "Cargando subrazas",
   "noSubbreedsToShow": "No hay subrazas para mostrar",
-  "loadingBreeds": "Cargando razas..."
+  "loadingBreeds": "Cargando razas...",
+  "LightMode": "Modo claro",
+  "DarkMode": "Modo oscuro"
 }

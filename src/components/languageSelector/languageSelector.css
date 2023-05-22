@@ -1,24 +1,27 @@
 .language_selector_container {
-  position: absolute;
-  right: 47px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  margin: 10px;
-  top: 0;
+  margin-right: 30px;
 }
 
 .current-language--label {
-  position: relative;
-  top: 20px;
   margin-right: 10px;
   visibility: visible;
+}
+
+.languages_options_container {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: -10;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .language_selector {
   position: relative;
   width: 80px;
-  margin-top: 10px;
 }
 
 .language_selector::before {
@@ -60,27 +63,19 @@
 }
 
 .language_selector-input {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   cursor: pointer;
   border-radius: 10px;
   padding: 7px 10px 10px;
   font-size: 0.9em;
   background: #fff;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   text-align: left;
   color: #6e6e6e;
 }
 
-.languages_options_container {
-  position: absolute;
-  top: 40px;
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  z-index: -10;
+#Light .language_selector-input {
+  background: #dcdcdc;
+  color: #3a3a3a;
 }
 
 .languages_options {
@@ -125,6 +120,10 @@
   background-color: #353535;
   color: #dcdcdc;
   transition: 0.3s;
+}
+
+#Light .languages_options div:hover{
+  background-color: #6e6e6e;
 }
 
 @media screen and (max-width: 480px) {
