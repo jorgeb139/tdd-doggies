@@ -1,30 +1,18 @@
-import { useState } from "react"
 import './home.css';
-
 import { BreedsList } from "../../components/lists/breedsList/BreedsList"
 import { SubBreedsList } from "../../components/lists/subBreedsList/SubBreedsList"
 import { RenderImages } from "../../components/renderImages/RenderImages"
+import { useBreedContext } from "../../context/BreedContext";
 
 export const Home = () => {
-  const [actualBreed, setActualBreed] = useState('')
-  const [actualSubBreed, setActualSubBreed] = useState('')
-  const [deleteBreed, setDeleteBreed] = useState('')
-
-  const handleBreedsChange = (breed) => {
-    setActualBreed(breed);
-    setDeleteBreed('')
-  };
-  
-  const handleSubBreedsChange = (subBreed) => {
-    setActualSubBreed(subBreed);
-    setDeleteBreed('')
-  };
-  
-  const handleDeleteBreed = (breed) => {
-    setDeleteBreed(breed);
-    setActualBreed('')
-    setActualSubBreed('')
-  };
+  const {
+    actualBreed,
+    actualSubBreed,
+    deleteBreed,
+    handleBreedsChange,
+    handleSubBreedsChange,
+    handleDeleteBreed,
+  } = useBreedContext();
 
   return (
     <div className="container">

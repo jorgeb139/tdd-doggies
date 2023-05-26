@@ -4,7 +4,14 @@ export const ThemeContext = createContext()
 
 export const ThemeContextProvider = ({children}) => {
   const [contextTheme, setContextTheme] = useState(localStorage.getItem('theme') || 'Light');
-  const values = {contextTheme, setContextTheme}
+
+  const saveTheme = () => {
+    const newTheme = contextTheme === 'Light' ? 'Dark' : 'Light';
+    setContextTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  }
+
+  const values = {contextTheme, saveTheme}
 
   return (
     <ThemeContext.Provider value={values}>
@@ -18,3 +25,4 @@ export const useThemeContext = () => {
 
   return context
 }
+

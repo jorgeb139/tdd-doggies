@@ -1,0 +1,48 @@
+.header_container {
+  display: flex;
+  justify-content: space-between; 
+  margin-bottom: 10px;
+}
+
+.fixed_header {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  background: #202020;
+  z-index: 10000;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  transition: top 0.3s ease-in-out;
+  padding: 10px 0px;
+  box-sizing: border-box;
+}
+
+#Light .fixed_header {
+  background: #b6b6b6;
+}
+
+.is_sticky {
+  top: 0px;
+}
+
+.fixed_breed_selector,
+.fixed-sub-breed-selector {
+  padding: 20px 10px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 480px) {
+
+  .header_container {
+    margin-bottom: 0px;
+  }
+
+  .fixed_header {
+    padding: 20px 30px;
+  }
+
+}

@@ -9,12 +9,6 @@ body {
   padding: 20px 5%;
 }
 
-.header_container {
-  display: flex;
-  justify-content: space-between; 
-  margin-bottom: 20px;
-}
-
 .content_container {
   display: grid;
   grid-template-columns: 1fr;
@@ -32,12 +26,4 @@ body {
   background-color: #f6f6f6;
   color: #21232A;
   transition: 1s;
-}
-
-@media screen and (max-width: 480px) {
-
-  .header_container {
-    margin-bottom: 0px;
-  }
-
 }

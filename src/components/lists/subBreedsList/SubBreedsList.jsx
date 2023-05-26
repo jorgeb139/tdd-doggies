@@ -7,12 +7,17 @@ import { DropdownList } from "../DropdownList";
 import { SelectedBreeds } from "../selectedBreeds/SelectedBreeds";
 import { useHandleBreedSelect } from "../../../hooks/useHandleBreedSelect/useHandleBreedSelect";
 import { useHandleBreedRemove } from "../../../hooks/useHandleBreedRemove/useHandleBreedRemove";
+import { useBreedContext } from "../../../context/BreedContext";
 
 export const SubBreedsList = ({ breed, onSubBreedChange, onDeleteBreed, deleteBreed }) => {
   const [subBreeds, setSubBreeds] = useState([]);
-  const [selectedSubBreeds, setSelectedSubBreeds] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isFirstLoading, setIsFirstLoading] = useState(true);
+
+  const {
+    selectedSubBreeds,
+    setSelectedSubBreeds
+  } = useBreedContext();
 
   const { t } = useTranslation();
   const setSelectedBreeds = ''

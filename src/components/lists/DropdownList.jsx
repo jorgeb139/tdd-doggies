@@ -1,13 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useBreedContext } from '../../context/BreedContext';
 
 import './dropdownList.css'
 
 export const DropdownList = ({breeds, onBreedChange, onSubBreedChange, breedBool}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedBreed, setSelectedBreed] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [filteredBreeds, setFilteredBreeds] = useState(breeds);
+
+  const {
+    selectedBreed,
+    setSelectedBreed,
+    selectedSubBreed,
+    setSelectedSubBreed
+  } = useBreedContext();
 
   const { t } = useTranslation();
   const dropdownListRef = useRef(null);
@@ -34,11 +41,11 @@ export const DropdownList = ({breeds, onBreedChange, onSubBreedChange, breedBool
   }
 
   const handleChange = (breed) => {
-    setSelectedBreed(breed.value);
-
     if (onBreedChange) {
+      setSelectedBreed(breed.value);
       onBreedChange(breed.value);
     } else if (onSubBreedChange){
+      setSelectedSubBreed(breed.value);
       onSubBreedChange(breed.value);
     }
 
@@ -46,7 +53,7 @@ export const DropdownList = ({breeds, onBreedChange, onSubBreedChange, breedBool
     setIsOpen(false);
   };
 
-  const placeholderText = selectedBreed || (breedBool ? t('selectBreed') : t('selectSubBreed'));
+  const placeholderText = breedBool ? (selectedBreed || t('selectBreed')) : (selectedSubBreed || t('selectSubBreed'));
 
   return (
     <div className='list_container' ref={dropdownListRef}>
