@@ -1,6 +1,21 @@
 import { createContext, useState, useContext } from 'react';
 
-export const BreedContext = createContext();
+export const BreedContext = createContext({
+  actualBreed: '',
+  actualSubBreed: '',
+  deleteBreed: '',
+  selectedBreeds: [],
+  selectedSubBreeds: [],
+  selectedBreed: '',
+  selectedSubBreed: '',
+  handleBreedsChange: () => {},
+  handleSubBreedsChange: () => {},
+  handleDeleteBreed: () => {},
+  setSelectedBreeds: () => {},
+  setSelectedSubBreeds: () => {},
+  setSelectedBreed: () => {},
+  setSelectedSubBreed: () => {}
+});
 
 export const BreedProvider = ({ children }) => {
   const [actualBreed, setActualBreed] = useState('');
